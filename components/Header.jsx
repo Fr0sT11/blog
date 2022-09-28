@@ -23,7 +23,7 @@ const Header = () => {
                     </Link>
                 </div>
                 <div className="hidden md:float-left md:contents">
-                    <span className="md:float-right justify-center align-middle bg-gray-600 dark:bg-gray-700 text-white ml-5 font-semibold cursor-pointer rounded-full p-1">
+                    <span className="transition duration-700 hover:bg-gray-800 dark:hover:bg-gray-500 md:float-right justify-center align-middle bg-gray-600 dark:bg-gray-700 text-white ml-5 font-semibold cursor-pointer rounded-full p-1">
                         <ThemeToggle />
                     </span>
                     {categories.map((category) => (
