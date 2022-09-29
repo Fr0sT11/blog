@@ -24,7 +24,7 @@ const CategoryPost = ({ posts, category }) => {
                     ))}
                 </div>
                 <div className="col-span-1 lg:col-span-4">
-                    <div className="relative lg:sticky top-8">
+                    <div className="relative lg:sticky top-0 lg:top-32">
                         <Categories />
                     </div>
 
