@@ -4,10 +4,10 @@ import moment from 'moment';
 const PostDetail = ({ post }) => {
     const getContentFragment = (index, text, obj, type) => {
         let modifiedText = text;
-        
+        let listItems = [];
+
         if (obj.type === 'bulleted-list' || "numbered-list") {
-          let listItems = obj.children;
-          console.log({listItems})
+          listItems = obj.children;
         }
 
         if (obj) {
