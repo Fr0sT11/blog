@@ -4,7 +4,12 @@ import moment from 'moment';
 const PostDetail = ({ post }) => {
     const getContentFragment = (index, text, obj, type) => {
         let modifiedText = text;
-    
+        
+        if (obj.type === 'bulleted-list' || "numbered-list") {
+          let listItems = obj.children;
+          console.log({listItems})
+        }
+
         if (obj) {
           if (obj.bold) {
             modifiedText = (<b key={index}>{text}</b>);
@@ -26,6 +31,36 @@ const PostDetail = ({ post }) => {
             return <p key={index} className="mb-8 dark:text-gray-300">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</p>;
           case 'heading-four':
             return <h4 key={index} className="text-md font-semibold mb-4 dark:text-gray-200">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</h4>;
+          case 'block-quote':
+            return <em key={index} className="mb-8 dark:text-gray-400">{modifiedText.map((item, i) => <React.Fragment key={i}>{item}</React.Fragment>)}</em>;
+          case 'bulleted-list':
+            return (
+              <ul key={index} className="mb-8 dark:text-gray-300 list-disc ml-7">
+                {listItems.map((listItem,i) => {
+                  return (
+                    <li key={i}>{listItem.children.map((item) => {
+                      return item.children.map((item, j) => <React.Fragment key={j}>{item.text}</React.Fragment>)
+                    })}
+                    </li>
+                  )
+                }
+                )}
+              </ul>
+            );
+          case 'numbered-list':
+            return (
+              <ol key={index} className="mb-8 dark:text-gray-300 list-decimal ml-7">
+                {listItems.map((listItem,i) => {
+                  return (
+                    <li key={i}>{listItem.children.map((item) => {
+                      return item.children.map((item, j) => <React.Fragment key={j}>{item.text}</React.Fragment>)
+                    })}
+                    </li>
+                  )
+                }
+                )}
+              </ol>
+            );
           case 'image':
             return (
               <img
