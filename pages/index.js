@@ -8,7 +8,7 @@ export default function Home({ posts }) {
   return (
     <div className="container mx-auto lg:px-10 px-4 mb-8">
       <Head>
-        <title>FrOstBytes</title>
+        <title>CodeBytes</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <FeaturedPosts />
